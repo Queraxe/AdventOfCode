@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 int main(void)
 {
-    FILE *file = fopen("01/input.txt", "r"); 
-    if (file == NULL) {
+    FILE *file = fopen("01/input.txt", "r");
+    if (file == NULL)
+    {
         perror("Datei konnte nicht geöffnet werden");
         return 1;
     }
@@ -15,12 +15,11 @@ int main(void)
     int counter = 0;
 
     char line[256];
-    while (fgets(line, sizeof(line), file) != NULL) {
+    while (fgets(line, sizeof(line), file) != NULL)
+    {
         char parameter = line[0];
-        
 
-        int rotation = atoi(memmove(line, line + 1, strlen(line)));
-
+        int rotation = atoi(&line[1]);
 
         if (parameter == 'L')
             dial = (dial - rotation) % 100;
@@ -29,13 +28,11 @@ int main(void)
 
         if (dial == 0)
             counter++;
-        
     }
 
-    
     printf("%i", counter);
 
     fclose(file);
-    
+
     return 0;
 }

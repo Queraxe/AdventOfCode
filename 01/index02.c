@@ -3,7 +3,8 @@
 #include <string.h>
 
 // Hilfsfunktion für den Absolutbetrag bei long long
-long long llabs_custom(long long n) {
+long long llabs_custom(long long n)
+{
     return n < 0 ? -n : n;
 }
 
@@ -24,19 +25,19 @@ int main(void)
     {
         char parameter = line[0];
 
-        int rotation = atoi(&line[1]); 
+        int rotation = atoi(&line[1]);
 
         long long old_dial = dial;
 
         if (parameter == 'R')
         {
             dial += rotation;
-            
+
             long long old_block = old_dial / 100;
             long long new_block = dial / 100;
             counter += (new_block - old_block);
         }
-        else 
+        else
         {
             dial -= rotation;
 
